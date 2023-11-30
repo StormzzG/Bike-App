@@ -1,6 +1,6 @@
 pandas
 plotly
 matplotlib
-streamlit-lottie
+streamlit_lottie
 json
-streamlit-option-menu
+streamlit_option_menu
