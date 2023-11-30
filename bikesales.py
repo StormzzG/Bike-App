@@ -34,7 +34,7 @@ if selected == 'Intro':
             """
         st.markdown(image_alignment, unsafe_allow_html=True)
     with col2:
-        st.markdown("<p style='text-align: center; color: white; font-family: Cursive; font-size: 20px; padding-top: 250px; margin-left: -350px;'>Hi there! My name is Stormy Ndonga, a Data Science Student at Moringa School Kenya.This is my simple Exploratory Data Analysis for a Bike Store Sample Data. Click on the Data Visualization tab to have a look at it.</p>", unsafe_allow_html=True)
+        st.markdown("<p style='text-align: center; font-family: Cursive; font-size: 20px; padding-top: 250px; margin-left: -350px;'>Hi there! My name is Stormy Ndonga, a Data Science Student at Moringa School Kenya.This is my simple Exploratory Data Analysis for a Bike Store Sample Data. Click on the Data Visualization tab to have a look at it.</p>", unsafe_allow_html=True)
 
 
 
