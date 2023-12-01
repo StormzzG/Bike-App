@@ -11,13 +11,13 @@ st.markdown('<style>div.block-container{padding-top: 2rem}<style>', unsafe_allow
 
 selected = option_menu(
     menu_title=None,
-    options=['Intro', 'Data Visualization'],
+    options=['Developer Intro', 'Data Visualization'],
     icons=['person-fill', 'bar-chart-fill'],
     default_index=0,
     orientation='horizontal'
 )
 
-if selected == 'Intro':
+if selected == 'Developer Intro':
     with open('Animation 1.json', 'r') as f:
         animation = json.load(f)
 
