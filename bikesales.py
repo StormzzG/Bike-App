@@ -21,27 +21,16 @@ if selected == 'Developer Intro':
     with open('Animation 1.json', 'r') as f:
         animation = json.load(f)
 
-    col1,col2 = st.columns((2))
+    col1,col2 = st.columns([0.3,0.7])
  
     with col1:
-        st_lottie(animation, key='hello1', quality='high', width=500, height=500, loop=True)
-        image_alignment= """
-            <style>
-            animation {
-            padding-top: -200px
-            }
-            </style>
-            """
-        st.markdown(image_alignment, unsafe_allow_html=True)
+        img = st_lottie(animation, key='hello1', quality='high', width=600, height=500, loop=True)
     with col2:
-        st.markdown("<p style='text-align: center; font-family: Cursive; font-size: 20px; padding-top: 250px; margin-left: -350px;'>Hi there! My name is Stormy Ndonga, a Data Science Student at Moringa School Kenya.This is my simple Exploratory Data Analysis for a Bike Store Sample Data. Click on the Data Visualization tab to have a look at it.</p>", unsafe_allow_html=True)
-
+        st.markdown("<p style='text-align: center; font-family: Cursive; font-size: 20px; padding-top: 250px;'>Hi there! My name is Stormy Ndonga, a Data Science Student at Moringa School Kenya.This is my simple Exploratory Data Analysis for a Bike Store Sample Data. Click on the Data Visualization tab to have a look at it.</p>", unsafe_allow_html=True)
+        #margin-left: -350px;
 
 
 if selected == 'Data Visualization':
-    #st.title(':bike: Bike Store EDA')
-    #st.markdown('<style>div.block-container{padding-top: 2rem}<style>', unsafe_allow_html=True)
-
     fl = st.file_uploader(':file_folder: Upload a File', type=(['csv','xlsx','xls','txt']))
     st.warning('All this Data is affected by what you pick in the Sidebar Multiselect. Enjoy!')
     if fl is not None:
