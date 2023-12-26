@@ -20,13 +20,13 @@ selected = option_menu(
 if selected == 'Developer Intro':
     with open('Animation 1.json', 'r') as f:
         animation = json.load(f)
-
+    
     col1,col2 = st.columns([0.3,0.7])
- 
+    
     with col1:
-        img = st_lottie(animation, key='hello1', quality='high',width=478, height=500, loop=True)
+        image = st_lottie(animation, key='hello1', quality='high',width=478, loop=True)
     with col2:
-        st.markdown("<p style='text-align: center; font-family: Cursive; font-size: 20px; padding-top: 250px;'>Hi there! My name is Stormy Ndonga, a Data Science Student at Moringa School Kenya.This is my simple Exploratory Data Analysis for a Bike Store Sample Data. Click on the Data Visualization tab to have a look at it.</p>", unsafe_allow_html=True)
+        st.markdown("<p style='text-align: center; font-family: Cursive; font-size: 20px; padding-top: 220px;'>Hi there! My name is Stormy Ndonga, a Data Science Student at Moringa School Kenya.This is my simple Exploratory Data Analysis for a Bike Store Sample Data. Click on the Data Visualization tab to have a look at it.</p>", unsafe_allow_html=True)
         #margin-left: -350px;
 
 
