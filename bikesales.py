@@ -27,7 +27,7 @@ if selected == 'Developer Intro':
         image = st_lottie(animation, key='hello1', quality='high',width=478, loop=True)
     with col2:
         st.markdown("<p style='text-align: center; font-family: Cursive; font-size: 20px; padding-top: 220px;'>Hi there! My name is Stormy Ndonga, a Data Science Student at Moringa School Kenya.This is my simple Exploratory Data Analysis for a Bike Store Sample Data. Click on the Data Visualization tab to have a look at it.</p>", unsafe_allow_html=True)
-        #margin-left: -350px;
+        st.markdown("<span style='font-family: Cursive; font-size: 18px; margin-left: 100px;'> Another version of this project exists on my Github profile, have a look at it [here](https://github.com/StormzzG/Bike-Store-Analysis) </span>",unsafe_allow_html=True)
 
 
 if selected == 'Data Visualization':
