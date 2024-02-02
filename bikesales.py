@@ -31,14 +31,14 @@ if selected == 'Developer Intro':
 
 
 if selected == 'Data Visualization':
-    fl = st.file_uploader(':file_folder: Upload a File', type=(['csv','xlsx','xls','txt']))
-    st.warning('All this Data is affected by what you pick in the Sidebar Multiselect. Enjoy!')
-    if fl is not None:
-        filename = fl.name
-        st.write(filename)
-        df = pd.read_csv(filename)
-    else:
-        df = pd.read_csv('Sales.csv')
+    #fl = st.file_uploader(':file_folder: Upload a File', type=(['csv','xlsx','xls','txt']))
+    # st.warning('All this Data is affected by what you pick in the Sidebar Multiselect. Enjoy!')
+    # if fl is not None:
+    #     filename = fl.name
+    #     st.write(filename)
+    #     df = pd.read_csv(filename)
+    # else:
+    df = pd.read_csv('Sales.csv')
 
 
     st.sidebar.header('Choose Filter')
