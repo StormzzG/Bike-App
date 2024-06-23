@@ -71,8 +71,32 @@ if selected == 'Data Visualization':
             csv = country_df.to_csv(index=False).encode('utf-8')
             st.download_button('Download Data', data=csv, file_name='Country CSV', mime='text/csv')
 
+    product_df2 = df3.groupby(by = ['Product_Category'], as_index=False)['Profit'].sum()
+    country_df2 = df3.groupby(by = ['Country'], as_index=False)['Profit'].sum()
     col6, col7 = st.columns((2))
     with col6:
+        st.subheader('Product Category Profit')
+        fig = px.pie(product_df2, names='Product_Category', values='Profit', template='plotly_dark')
+        fig.update_traces(text=product_df['Product_Category'], textposition='outside')
+        st.plotly_chart(fig, use_container_width=True)
+
+        with st.expander('View Data'):
+            st.write(product_df2.style.background_gradient(cmap='YlOrBr'))
+            csv = product_df2.to_csv(index=False).encode('utf-8')
+            st.download_button('Download Data', data=csv, file_name='Profit CSV', mime='text/csv')
+    with col7:
+        st.subheader('Country Profit')
+        fig = px.pie(country_df2, names='Country', values='Profit')
+        fig.update_traces(text=country_df2['Country'],textposition='outside')
+        st.plotly_chart(fig, use_container_width=True)
+
+        with st.expander('View Data'):
+            st.write(country_df2.style.background_gradient(cmap='YlOrBr'))
+            csv = country_df2.to_csv(index=False).encode('utf-8')
+            st.download_button('Download Data', data=csv, file_name='Country Profit CSV', mime='text/csv')
+
+    col8, col9 = st.columns((2))
+    with col8:
         st.subheader('Sub Category Profits')
         fig = px.bar(subcategory_df, x='Sub_Category', y='Profit',template='seaborn')
         st.plotly_chart(fig, use_container_width=True)
@@ -81,7 +105,7 @@ if selected == 'Data Visualization':
             st.write(subcategory_df.style.background_gradient(cmap='YlOrBr'))
             csv = subcategory_df.to_csv(index=False).encode('utf-8')
             st.download_button('Download Data', data=csv, file_name='Subcategory CSV', mime='text/csv')
-    with col7:
+    with col9:
         st.subheader('Sub Category Total Revenue')
         fig = px.bar(category_df, x='Sub_Category', y='Revenue',template='seaborn')
         st.plotly_chart(fig, use_container_width=True)
@@ -98,7 +122,6 @@ if selected == 'Data Visualization':
     new_df = df3.groupby(['month_year'],as_index=False)['Revenue'].sum()
     new_df2 = pd.DataFrame(new_df)
     new_df2['month_year'] = new_df2['month_year'].dt.strftime("%Y : %B")
-    #linechart = pd.DataFrame(df3.groupby(df3['month_year'].dt.strftime('%Y : %b'))['Revenue'].sum()).reset_index()
 
     fig2 = px.line(new_df2, x='month_year', y='Revenue', height=500)
     st.plotly_chart(fig2, use_container_width=True)
@@ -126,26 +149,4 @@ if selected == 'Data Visualization':
     fig5 = px.scatter(correlation_data, x='Revenue', y='Profit')
     st.plotly_chart(fig5, use_container_width=True)
 
-    product_df2 = df3.groupby(by = ['Product_Category'], as_index=False)['Profit'].sum()
-    country_df2 = df3.groupby(by = ['Country'], as_index=False)['Profit'].sum()
-    col8, col9 = st.columns((2))
-    with col8:
-        st.subheader('Product Category Profit')
-        fig = px.pie(product_df2, names='Product_Category', values='Profit', template='plotly_dark')
-        fig.update_traces(text=product_df['Product_Category'], textposition='outside')
-        st.plotly_chart(fig, use_container_width=True)
-
-        with st.expander('View Data'):
-            st.write(product_df2.style.background_gradient(cmap='YlOrBr'))
-            csv = product_df2.to_csv(index=False).encode('utf-8')
-            st.download_button('Download Data', data=csv, file_name='Profit CSV', mime='text/csv')
-    with col9:
-        st.subheader('Country Profit')
-        fig = px.pie(country_df2, names='Country', values='Profit')
-        fig.update_traces(text=country_df2['Country'],textposition='outside')
-        st.plotly_chart(fig, use_container_width=True)
-
-        with st.expander('View Data'):
-            st.write(country_df2.style.background_gradient(cmap='YlOrBr'))
-            csv = country_df2.to_csv(index=False).encode('utf-8')
-            st.download_button('Download Data', data=csv, file_name='Country Profit CSV', mime='text/csv')
+    
