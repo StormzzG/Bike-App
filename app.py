@@ -101,7 +101,7 @@ if selected == 'Data Visualization':
         fig = px.bar(subcategory_df, x='Sub_Category', y='Profit',template='seaborn')
         st.plotly_chart(fig, use_container_width=True)
         
-        with st.expander('Sub Category View Data'):
+        with st.expander('View Data'):
             st.write(subcategory_df.style.background_gradient(cmap='YlOrBr'))
             csv = subcategory_df.to_csv(index=False).encode('utf-8')
             st.download_button('Download Data', data=csv, file_name='Subcategory CSV', mime='text/csv')
@@ -110,7 +110,7 @@ if selected == 'Data Visualization':
         fig = px.bar(category_df, x='Sub_Category', y='Revenue',template='seaborn')
         st.plotly_chart(fig, use_container_width=True)
 
-        with st.expander('Sub Category Tota Revenue'):
+        with st.expander('View Data'):
             st.write(category_df.style.background_gradient(cmap='YlOrBr'))
             csv = category_df.to_csv(index=False).encode('utf-8')
             st.download_button('Download Data', data=csv, file_name='Revenue CSV', mime='text/csv')
